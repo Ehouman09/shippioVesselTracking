@@ -39,7 +39,7 @@ class VesselsController extends Controller
       //Add required on all parameters
       $request->validate(['name' => 'required']);
       $request->validate(['ownerid' => 'required']);
-      $request->validate(['naccscode' => 'required']);
+      $request->validate(['naccscode' => 'required|string|alpha_num']);
 
       //Check if Vessels NACCS code already exist
       $vesselsList = Vessels::where('naccscode', $request->naccscode)
